@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PhysioDoctor833 — Physiotherapy and medical education videos, exercise tips, anatomy and rehabilitation guidance.">
+  <title>PhysioDoctor833 | Physiotherapy & Medical Education</title>
+  <style>
+    :root{
+      --primary:#0b8f87;
+      --primary-dark:#056b66;
+      --accent:#17c3b2;
+      --bg:#f5fbfa;
+      --card:#ffffff;
+      --text:#17333a;
+      --muted:#648087;
+      --border:#dcebea;
+      --shadow:0 12px 35px rgba(8,82,78,.10);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+
+    header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      height:72px;display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
+    .brand-logo{
+      width:42px;height:42px;border-radius:50%;
+      display:grid;place-items:center;background:var(--primary);color:white;font-size:20px;
+    }
+    nav ul{display:flex;gap:25px;list-style:none}
+    nav a{font-weight:600;color:#38575e}
+    nav a:hover{color:var(--primary)}
+    .menu{display:none;background:none;border:0;font-size:28px;color:var(--text)}
+
+    .hero{
+      padding:78px 0 60px;
+      background:linear-gradient(135deg,#e8faf7,#f8ffff);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+    .badge{
+      display:inline-block;padding:7px 13px;border-radius:30px;
+      background:#d7f6f1;color:var(--primary-dark);font-weight:700;font-size:13px;margin-bottom:18px;
+    }
+    h1{font-size:clamp(38px,6vw,66px);line-height:1.05;margin-bottom:18px}
+    h1 span{color:var(--primary)}
+    .hero p{font-size:18px;color:var(--muted);max-width:650px;margin-bottom:28px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:13px 20px;border-radius:10px;font-weight:800;border:1px solid var(--primary);
+      transition:.2s;cursor:pointer;
+    }
+    .btn-primary{background:var(--primary);color:white}
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+    .btn-light{background:white;color:var(--primary)}
+    .hero-card{
+      background:white;border-radius:24px;padding:28px;box-shadow:var(--shadow);
+      border:1px solid var(--border);
+    }
+    .hero-card .circle{
+      width:150px;height:150px;margin:0 auto 18px;border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:#fff;display:grid;place-items:center;font-size:55px;
+      box-shadow:0 15px 35px rgba(11,143,135,.25);
+    }
+    .hero-card{text-align:center}
+    .hero-card h3{font-size:24px}
+    .hero-card p{font-size:14px;margin:6px 0 0}
+
+    section{padding:70px 0}
+    .section-title{text-align:center;margin-bottom:38px}
+    .section-title h2{font-size:34px;margin-bottom:8px}
+    .section-title p{color:var(--muted)}
+
+    .videos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .video-card{
+      background:var(--card);border:1px solid var(--border);border-radius:16px;
+      overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.05);transition:.2s;
+    }
+    .video-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .thumb{
+      aspect-ratio:16/9;display:grid;place-items:center;
+      background:linear-gradient(135deg,#075e5a,#16a99d);color:white;position:relative;
+    }
+    .play{
+      width:58px;height:42px;border-radius:11px;background:#fff;color:#d00;
+      display:grid;place-items:center;font-size:22px;padding-left:3px;
+    }
+    .thumb small{position:absolute;bottom:10px;left:12px;font-weight:700}
+    .video-content{padding:18px}
+    .video-content h3{font-size:18px;margin-bottom:7px}
+    .video-content p{font-size:14px;color:var(--muted)}
+    .watch{display:inline-block;margin-top:12px;color:var(--primary);font-weight:800}
+
+    .topics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .topic{
+      background:#fff;padding:25px 18px;text-align:center;border:1px solid var(--border);
+      border-radius:15px;font-weight:800;box-shadow:0 5px 20px rgba(0,0,0,.04);
+    }
+    .topic div{font-size:32px;margin-bottom:8px}
+
+    .about{
+      background:#0c4f4b;color:white;
+    }
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    .about p{color:#d8efed;margin-top:14px}
+    .checks{margin-top:22px;display:grid;gap:11px}
+    .checks div{font-weight:700}
+
+    .social{
+      display:flex;gap:12px;flex-wrap:wrap;margin-top:25px
+    }
+    .social a{background:white;color:var(--primary-dark);padding:11px 16px;border-radius:9px;font-weight:800}
+
+    .subscribe{
+      text-align:center;background:white;border:1px solid var(--border);
+      border-radius:20px;padding:45px 20px;box-shadow:var(--shadow);
+    }
+    .subscribe h2{font-size:32px;margin-bottom:8px}
+    .subscribe p{color:var(--muted);margin-bottom:22px}
+
+    footer{background:#083b39;color:#cde6e4;padding:30px 0;text-align:center}
+    footer a{color:white;font-weight:700}
+
+    #topBtn{
+      position:fixed;right:18px;bottom:18px;width:45px;height:45px;border:0;
+      border-radius:50%;background:var(--primary);color:#fff;font-size:20px;
+      display:none;cursor:pointer;box-shadow:var(--shadow);
+    }
+
+    @media(max-width:800px){
+      nav ul{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;padding:18px 4%;border-bottom:1px solid var(--border);flex-direction:column;gap:16px}
+      nav ul.open{display:flex}
+      .menu{display:block}
+      .hero-grid,.about-grid{grid-template-columns:1fr}
+      .videos{grid-template-columns:1fr 1fr}
+      .topics{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:520px){
+      .videos{grid-template-columns:1fr}
+      .topics{grid-template-columns:1fr 1fr}
+      section{padding:55px 0}
+      .hero{padding:55px 0 40px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <span class="brand-logo">🩺</span>
+      <span>PhysioDoctor833</span>
+    </a>
+    <nav>
+      <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+      <ul id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#topics">Topics</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">PHYSIOTHERAPY • HEALTH • EDUCATION</span>
+        <h1>Learn. Move.<br><span>Recover.</span></h1>
+        <p>
+          Welcome to <strong>PhysioDoctor833</strong> — a channel focused on
+          physiotherapy education, anatomy, rehabilitation, exercise guidance
+          and easy-to-understand medical content.
+        </p>
+        <div class="buttons">
+          <!-- Replace YOUR_CHANNEL_ID with your real YouTube channel URL -->
+          <a class="btn btn-primary" href="https://www.youtube.com/@physiodoctor833" target="_blank" rel="noopener">▶ Visit YouTube Channel</a>
+          <a class="btn btn-light" href="https://t.me/Bptpgimsrohtak" target="_blank" rel="noopener">✈ Join Telegram Group</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="circle">🦴</div>
+        <h3>PhysioDoctor833</h3>
+        <p>Physiotherapy & Medical Education</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured Videos</h2>
+        <p>Educational content for students, patients and health enthusiasts.</p>
+      </div>
+
+      <div class="videos">
+        <article class="video-card">
+          <div class="thumb">
+            <div class="play">▶</div>
+            <small>PHYSIOTHERAPY</small>
+          </div>
+          <div class="video-content">
+            <h3>What is Physiotherapy?</h3>
+            <p>Understand physiotherapy, its role and common treatment approaches.</p>
+            <a class="watch" href="https://www.youtube.com/@physiodoctor833" target="_blank" rel="noopener">Visit channel →</a>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="thumb">
+            <div class="play">▶</div>
+            <small>REHABILITATION</small>
+          </div>
+          <div class="video-content">
+            <h3>Knee Arthritis & Physiotherapy</h3>
+            <p>Learn about knee osteoarthritis and the role of therapeutic exercise.</p>
+            <a class="watch" href="https://www.youtube.com/@physiodoctor833" target="_blank" rel="noopener">Visit channel →</a>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="thumb">
+            <div class="play">▶</div>
+            <small>ANATOMY</small>
+          </div>
+          <div class="video-content">
+            <h3>Important Anatomy Concepts</h3>
+            <p>Simple explanations of anatomy and physiotherapy-related topics.</p>
+            <a class="watch" href="https://www.youtube.com/@physiodoctor833" target="_blank" rel="noopener">Visit channel →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="topics">
+    <div class="container">
+      <div class="section-title">
+        <h2>Explore Topics</h2>
+        <p>Choose a topic and start learning.</p>
+      </div>
+
+      <div class="topics">
+        <div class="topic"><div>🦴</div>Orthopaedics</div>
+        <div class="topic"><div>🏃</div>Exercise Therapy</div>
+        <div class="topic"><div>🧠</div>Anatomy</div>
+        <div class="topic"><div>⚡</div>Electrotherapy</div>
+        <div class="topic"><div>🫁</div>Physiotherapy</div>
+        <div class="topic"><div>📚</div>Student Education</div>
+        <div class="topic"><div>🩹</div>Rehabilitation</div>
+        <div class="topic"><div>💡</div>Health Tips</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div>
+        <h2>About PhysioDoctor833</h2>
+        <p>
+          PhysioDoctor833 creates educational physiotherapy and medical content
+          designed to make health and rehabilitation concepts easier to understand.
+        </p>
+        <div class="checks">
+          <div>✓ Physiotherapy education</div>
+          <div>✓ Anatomy & rehabilitation</div>
+          <div>✓ Exercise and movement education</div>
+          <div>✓ Easy-to-understand medical animations</div>
+        </div>
+      </div>
+
+      <div>
+        <h2>Follow the Channel</h2>
+        <p>Stay connected for new educational videos and Shorts.</p>
+        <div class="social">
+          <a href="https://www.youtube.com/@physiodoctor833" target="_blank" rel="noopener">▶ YouTube</a>
+          <a href="https://t.me/Bptpgimsrohtak" target="_blank" rel="noopener">✈ Telegram Group</a>
+          <a href="https://www.instagram.com/physiodoctor833/" target="_blank" rel="noopener">◎ Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="subscribe">
+        <h2>Ready to Learn?</h2>
+        <p>Subscribe to PhysioDoctor833 for new physiotherapy and medical education content.</p>
+        <a class="btn btn-primary" href="https://www.youtube.com/@physiodoctor833" target="_blank" rel="noopener">🔔 Visit YouTube</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> PhysioDoctor833. Educational content for learning purposes.</p>
+    <p style="margin-top:6px"><a href="#home">Back to top ↑</a></p>
+  </div>
+</footer>
+
+<button id="topBtn" aria-label="Back to top">↑</button>
+
+<script>
+  // Mobile navigation
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+  });
+
+  document.querySelectorAll("#navLinks a").forEach(link => {
+    link.addEventListener("click", () => navLinks.classList.remove("open"));
+  });
+
+  // Current year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Back-to-top button
+  const topBtn = document.getElementById("topBtn");
+
+  window.addEventListener("scroll", () => {
+    topBtn.style.display = window.scrollY > 400 ? "block" : "none";
+  });
+
+  topBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+</body>
+</html>
